@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "demo-block/block-dev",
+	"version": "0.1.0",
+	"title": "Block Dev",
+	"category": "text",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"color": {
+			"backgroundColor": true,
+			"textColor": true
+		},
+		"spacing": {
+			"padding": true,
+            "margin": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		},
+		"shadow": true
+	},
+	"textdomain": "block-dev",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": "h4"
+		},
+		"alignments": {
+			"type": "string",
+			"default": "left"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"color": {
+					"background": "#eee"
+				},
+				"spacing": {
+					"padding": {
+                        "top": "20px",
+                        "right": "20px",
+                        "bottom": "20px",
+                        "left": "20px"
+                    }
+				}
+			}
+		}
+	}
+}
