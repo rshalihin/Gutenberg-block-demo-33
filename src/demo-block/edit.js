@@ -1,10 +1,11 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, BlockControls, RichText, AlignmentToolbar, InspectorControls, PanelColorSettings, ContrastChecker } from '@wordpress/block-editor';
+import { PanelBody, RangeControl } from '@wordpress/components';
 import classnames from 'classnames';
 import './editor.scss';
 
 export default function Edit({ attributes, setAttributes }) {
-	const { text, alignments, textColor, backgroundColor } = attributes;
+	const { text, alignments, textColor, backgroundColor, shadow, shadowOpacity } = attributes;
 	const onChangeAlignment = (newAlignment) => {
 		setAttributes({ alignments: newAlignment });
 	}
@@ -14,7 +15,16 @@ export default function Edit({ attributes, setAttributes }) {
 	const onTextColorChange = (newColor) => {
 		setAttributes({ textColor: newColor });
 	}
-	const classes = classnames( `text-box-align-${alignments}` );
+	const shadowToggle = () => {
+		setAttributes({ shadow:!shadow });
+	}
+	const onChangeShadowOpacity = ( newShadowOpacity ) => {
+		setAttributes({ shadowOpacity: newShadowOpacity });
+	}
+	const classes = classnames( `text-box-align-${alignments}`, {
+		'has-shadow': shadow,
+		[`shadow-opacity-${shadowOpacity}`]: shadow && shadowOpacity,
+	} );
 
 	return (
 		<>
@@ -43,21 +53,43 @@ export default function Edit({ attributes, setAttributes }) {
 				/>
 			</PanelColorSettings>
 		</InspectorControls> */}
-		<BlockControls>
+		<InspectorControls>
+		{ shadow && 
+			<PanelBody>				
+				<RangeControl
+				    label={ __( 'Shadow Opacity', 'block-dev' ) }
+					value={ shadowOpacity }
+					min={ 10 }
+					max={ 40 }
+					step={ 10 }
+					onChange={onChangeShadowOpacity}
+					/>
+			</PanelBody>
+		}
+		</InspectorControls>
+		<BlockControls controls={[
+			{
+				icon: "admin-page",
+				title: __( 'Shadow Settings', 'block-dev' ),
+				onClick: shadowToggle,
+				isActive: shadow
+			}
+		]}>
 			<AlignmentToolbar
 			value={ alignments }
 			onChange={onChangeAlignment}
 			/>
 		</BlockControls>
-		<RichText
-			{ ...useBlockProps({
+		<div>
+			<RichText { ...useBlockProps({
 				className: classes,
-			})}
-			value={ text }
-			placeholder={ __('Your Text', 'block-dev') }
-			tagName='h4'
-			onChange={(text) => setAttributes({ text } )}
-		/>
+			})}			
+				value={ text }
+				placeholder={ __('Your Text', 'block-dev') }
+				tagName='h4'
+				onChange={(text) => setAttributes({ text } )}
+			/>
+		</div>
 		</>
 	);
 }

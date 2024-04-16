@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "demo-block/team-members",
+  "version": "0.1.0",
+  "title": "Team Members",
+  "category": "text",
+  "icon": "groups",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": false,
+      "padding": false
+    }
+  },
+  "textdomain": "team-members",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "columns": {
+      "type": "number",
+      "default": 2
+    }
+  }
+}

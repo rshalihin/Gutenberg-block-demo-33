@@ -1,0 +1,71 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-demo-block-team-members {
+	display: block;
+	@for $i from 1 through 6 {
+		&.has-#{$i}-columns {
+			/* stylelint-disable-next-line selector-class-pattern */
+			> .block-editor-inner-blocks > .block-editor-block-list__layout > { [data-type="demo-block/team-member"] {
+				width: calc( 100% / #{$i} - 20px );
+			}
+			.block-list-appender {
+				align-self: stretch;
+				width: calc(100% / #{$i} - 20px);
+				border: 1px dashed;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				min-height: 70px;
+			}
+		}
+		}
+	}
+
+	/* stylelint-disable-next-line selector-class-pattern */
+	> .block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -10px;
+		margin-right: -10px;
+		[data-type="demo-block/team-member"] {
+			max-width: none;
+			margin: 0;
+		}
+		/* stylelint-disable-next-line selector-class-pattern */
+		> [data-type="demo-block/team-member"] {
+			margin: 10px;
+			.wp-block-demo-block-team-member-img {
+				position: relative;
+				&.is-loading img {
+					opacity: 0.3;
+				}
+				.components-spinner {
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					margin: auto;
+				}
+			}
+			h4 {
+				color: #111;
+				font-weight: 600;
+				margin: 0;
+				font-size: 22px;
+				font-family: sans-serif;
+			}
+			p {
+				margin-top: 10px;
+				color: #333;
+				font-size: 16px;
+				font-family: sans-serif;
+			}
+		}
+	}
+}

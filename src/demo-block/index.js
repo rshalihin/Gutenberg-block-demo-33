@@ -30,13 +30,7 @@ registerBlockType( metadata.name, {
 	icon: {
 		src: "welcome-view-site"
 	},
-	/**
-	 * @see ./edit.js
-	 */
 	edit: Edit,
 
-	/**
-	 * @see ./save.js
-	 */
 	save,
 } );

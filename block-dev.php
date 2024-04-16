@@ -25,8 +25,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_block_dev_block_init() {
-	register_block_type( __DIR__ . '/build/demo-block' );
-	register_block_type( __DIR__ . '/build/text-card' );
+	$block_dev_block_list = array(
+		'demo-block',
+		'text-card',
+		'team-members',
+	);
+	foreach ( $block_dev_block_list as $block ) {
+		register_block_type( __DIR__ . "/build/${block}" );
+	}
 }
 add_action( 'init', 'create_block_block_dev_block_init' );
 

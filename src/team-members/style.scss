@@ -1,0 +1,41 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-demo-block-team-members {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -10px;
+	margin-right: -10px;
+	
+	@for $i from 1 through 6 {
+		&.has-#{$i}-columns {
+			.wp-block-demo-block-team-member {
+				width: calc( 100% / #{$i} - 20px );
+			}
+		}
+	}
+	.wp-block-demo-block-team-member {
+		margin: 10px;
+		img {
+			width: 100%;
+            height: auto;
+		}
+		h4 {
+			color: #111;
+			font-weight: 600;
+			margin: 0;
+			font-size: 22px;
+			font-family: sans-serif;
+		}
+		p {
+            margin-top: 10px;
+			color: #333;
+            font-size: 16px;
+            font-family: sans-serif;
+        }
+	}
+}

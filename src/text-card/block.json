@@ -22,7 +22,8 @@
 		"typography": {
 			"fontSize": true,
 			"lineHeight": true
-		}
+		},
+		"align": true
 	},
 	"textdomain": "text-card",
 	"editorScript": "file:./index.js",

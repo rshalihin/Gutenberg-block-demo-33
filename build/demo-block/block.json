@@ -14,15 +14,24 @@
       "textColor": true
     },
     "spacing": {
-      "padding": true,
-      "margin": true
+      "padding": true
     },
     "typography": {
       "fontSize": true,
       "lineHeight": true
-    },
-    "shadow": true
+    }
   },
+  "styles": [
+    {
+      "name": "square",
+      "label": "Square",
+      "isDefault": true
+    },
+    {
+      "name": "rounded",
+      "label": "Rounded"
+    }
+  ],
   "textdomain": "block-dev",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
@@ -43,6 +52,14 @@
     },
     "textColor": {
       "type": "string"
+    },
+    "shadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "shadowOpacity": {
+      "type": "number",
+      "default": 20
     },
     "style": {
       "type": "object",
