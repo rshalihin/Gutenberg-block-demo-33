@@ -13,7 +13,10 @@
     "spacing": {
       "margin": false,
       "padding": false
-    }
+    },
+    "align": [
+      "wide"
+    ]
   },
   "textdomain": "team-members",
   "editorScript": "file:./index.js",

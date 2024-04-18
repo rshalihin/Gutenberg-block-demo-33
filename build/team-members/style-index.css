@@ -37,6 +37,7 @@
 .wp-block-demo-block-team-members .wp-block-demo-block-team-member img {
   width: 100%;
   height: auto;
+  margin-bottom: 15px;
 }
 .wp-block-demo-block-team-members .wp-block-demo-block-team-member h4 {
   color: #111;
